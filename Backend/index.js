@@ -11,35 +11,18 @@ dotenv.config();
 
 const app = express();
 
-
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://task-timer-vpfs.vercel.app'
-];
-
-
 app.use(express.json());
-
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
+app.use(cors());
 
 
-app.options('*', cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
-
-
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000
 
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/timelogs', timeLogRoutes);
-app.use('/api/summary', summaryRoute);
+app.use('/api/summary', summaryRoute)
 
 app.listen(PORT, () => {
-  connectDB();
-  console.log(`Server started at port ${PORT}`);
-});
+    connectDB();
+    console.log(`server will be started at ${PORT}`);
+})
