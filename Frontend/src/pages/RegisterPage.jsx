@@ -20,7 +20,7 @@ function RegisterPage() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('https://task-timer-two.vercel.app/api/auth/signup', formData);
+      const res = await axios.post('http://localhost:3000/api/auth/signup', formData);
       localStorage.setItem('token', res.data.token);
       navigate('/');
     } catch (err) {

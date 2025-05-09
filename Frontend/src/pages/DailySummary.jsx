@@ -15,7 +15,7 @@ const DailySummary = () => {
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const res = await axios.get('https://task-timer-two.vercel.app/api/summary/daily', {
+        const res = await axios.get('http://localhost:3000/api/summary/daily', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
