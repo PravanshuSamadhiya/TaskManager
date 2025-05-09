@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchTasks = async (token, setTasks) => {
   try {
-    const res = await axios.get("http://localhost:3000/api/tasks", {
+    const res = await axios.get("https://tasktimer-0vyg.onrender.com/api/tasks", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setTasks(res.data);
@@ -16,7 +16,7 @@ export const handleCreate = async (token, input, setInput, setLoading, setTasks,
   setLoading(true);
   try {
     const res = await axios.post(
-      "http://localhost:3000/api/tasks",
+      "https://tasktimer-0vyg.onrender.com/api/tasks",
       { input },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -32,7 +32,7 @@ export const handleCreate = async (token, input, setInput, setLoading, setTasks,
 export const handleUpdateTask = async (token, id, updatedData, setTasks, tasks) => {
   try {
     const { data: updatedTask } = await axios.put(
-      `http://localhost:3000/api/tasks/${id}`,
+      `https://tasktimer-0vyg.onrender.com/api/tasks/${id}`,
       updatedData,
       {
         headers: {
@@ -55,7 +55,7 @@ export const handleUpdateTask = async (token, id, updatedData, setTasks, tasks) 
 
 export const handleDelete = async (token, id, setTasks, tasks) => {
   try {
-    await axios.delete(`http://localhost:3000/api/tasks/${id}`, {
+    await axios.delete(`https://tasktimer-0vyg.onrender.com/api/tasks/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     setTasks(tasks.filter((task) => task._id !== id));
@@ -67,7 +67,7 @@ export const handleDelete = async (token, id, setTasks, tasks) => {
 export const handleStatusChange = async (token, id, status, setTasks, tasks) => {
   try {
     const res = await axios.patch(
-      `http://localhost:3000/api/tasks/${id}/status`,
+      `https://tasktimer-0vyg.onrender.com/api/tasks/${id}/status`,
       { status },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -82,7 +82,7 @@ export const handleStatusChange = async (token, id, status, setTasks, tasks) => 
 export const handleStartTimer = async (token, taskId, setTimerState) => {
   try {
     const res = await axios.post(
-      "http://localhost:3000/api/timelogs/start",
+      "https://tasktimer-0vyg.onrender.com/api/timelogs/start",
       { taskId },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -105,7 +105,7 @@ export const handleStartTimer = async (token, taskId, setTimerState) => {
 export const handleStopTimer = async (token, taskId, timerState, setTimerState, fetchTasksFn) => {
   try {
     const res = await axios.post(
-      "http://localhost:3000/api/timelogs/stop",
+      "https://tasktimer-0vyg.onrender.com/api/timelogs/stop",
       { taskId },
       { headers: { Authorization: `Bearer ${token}` } }
     );

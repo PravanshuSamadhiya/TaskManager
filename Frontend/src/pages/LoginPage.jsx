@@ -19,7 +19,7 @@ function LoginPage() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/login', formData);
+      const res = await axios.post('https://tasktimer-0vyg.onrender.com/api/auth/login', formData);
       localStorage.setItem('token', res.data.token);
       navigate('/');
     } catch (err) {
