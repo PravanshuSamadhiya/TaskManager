@@ -15,7 +15,7 @@ services:
     ports:
       - '5001:5000'
     environment:
-      - MONGO_URI=mongodb+srv://abhisamadhiya684:Abhi1234@tasktimer.cnyzipe.mongodb.net/
+      - MONGO_URI=${MONGO_URI}
     depends_on:
       - mongo
 
