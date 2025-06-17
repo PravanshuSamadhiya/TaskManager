@@ -13,7 +13,7 @@ const app = express();
 
 app.use(express.json());
 const corsOptions = {
-  origin: ['http://localhost:3000'],
+  origin: ['http://localhost:5173', 'https://task-timer-green.vercel.app'],
   credentials: true
 };
 app.use(cors(corsOptions));
