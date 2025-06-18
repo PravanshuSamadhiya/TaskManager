@@ -21,12 +21,18 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 4000
 
+
+const startServer = async () => {
+  await connectDB();
+
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/timelogs', timeLogRoutes);
 app.use('/api/summary', summaryRoute)
 
-app.listen(PORT, () => {
-    connectDB();
-    console.log(`server will be started at ${PORT}`);
-})
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+startServer();
