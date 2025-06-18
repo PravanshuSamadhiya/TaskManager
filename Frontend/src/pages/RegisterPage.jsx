@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+ const BASE_URL = `https://task-manager-iota-five-73.vercel.app`
+
 function RegisterPage() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ function RegisterPage() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('https://tasktimer-0vyg.onrender.com/api/auth/signup', formData);
+      const res = await axios.post(`${BASE_URL}/api/auth/signup`, formData);
       localStorage.setItem('token', res.data.token);
       navigate('/');
     } catch (err) {

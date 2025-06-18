@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+ const BASE_URL = "https://task-manager-iota-five-73.vercel.app";
+
 const DailySummary = () => {
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -12,10 +14,11 @@ const DailySummary = () => {
     return `${h}h ${m}m ${s}s`;
   };
 
+
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const res = await axios.get('https://tasktimer-0vyg.onrender.com/api/summary/daily', {
+        const res = await axios.get(`${BASE_URL}/api/summary/daily`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
